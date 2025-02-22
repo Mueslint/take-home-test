@@ -1,33 +1,24 @@
-import { Drug } from "../models/Drug";
+import { Drug } from '../models/Drug';
 import {
   HerbalTeaStrategy,
   MagicPillStrategy,
   FervexStrategy,
   DafalganStrategy,
   DefaultStrategy,
-} from "../strategies";
+} from '../strategies';
+
+const strategiesMap = {
+  'Herbal Tea': HerbalTeaStrategy,
+  'Fervex': FervexStrategy,
+  'Magic Pill': MagicPillStrategy,
+  'Dafalgan': DafalganStrategy,
+};
+
+const DEFAULT_STRATEGY = DefaultStrategy;
 
 export class DrugFactory {
   static createDrug(name, expiresIn, benefit) {
-    let strategy;
-
-    switch (name) {
-      case "Herbal Tea":
-        strategy = new HerbalTeaStrategy();
-        break;
-      case "Magic Pill":
-        strategy = new MagicPillStrategy();
-        break;
-      case "Fervex":
-        strategy = new FervexStrategy();
-        break;
-      case "Dafalgan":
-        strategy = new DafalganStrategy();
-        break;
-      default:
-        strategy = new DefaultStrategy();
-    }
-
-    return new Drug(name, expiresIn, benefit, strategy);
+    const Strategy = strategiesMap[name] || DEFAULT_STRATEGY;
+    return new Drug(name, expiresIn, benefit, new Strategy());
   }
 }
