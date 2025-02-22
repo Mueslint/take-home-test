@@ -1,14 +1,14 @@
-import { Pharmacy } from '../../src/models/pharmacy';
-import { DrugFactory } from '../../src/factories/DrugFactory';
+import { Pharmacy } from "../../src/models/pharmacy";
+import { DrugFactory } from "../../src/factories/DrugFactory";
 
-describe('Pharmacy', () => {
-  test('Pharmacy updates all drugs correctly', () => {
+describe("Pharmacy", () => {
+  test("Pharmacy updates all drugs correctly", () => {
     const drugs = [
-      DrugFactory.createDrug('Doliprane', 10, 20),
-      DrugFactory.createDrug('Herbal Tea', 5, 10),
-      DrugFactory.createDrug('Magic Pill', 15, 40),
-      DrugFactory.createDrug('Fervex', 10, 30),
-      DrugFactory.createDrug('Dafalgan', 7, 30),
+      DrugFactory.createDrug("Doliprane", 10, 20),
+      DrugFactory.createDrug("Herbal Tea", 5, 10),
+      DrugFactory.createDrug("Magic Pill", 15, 40),
+      DrugFactory.createDrug("Fervex", 10, 30),
+      DrugFactory.createDrug("Dafalgan", 7, 30),
     ];
 
     const pharmacy = new Pharmacy(drugs);

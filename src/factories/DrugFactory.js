@@ -1,27 +1,27 @@
-import { Drug } from '../models/Drug';
+import { Drug } from "../models/Drug";
 import {
   HerbalTeaStrategy,
   MagicPillStrategy,
   FervexStrategy,
   DafalganStrategy,
   DefaultStrategy,
-} from '../strategies';
+} from "../strategies";
 
 export class DrugFactory {
   static createDrug(name, expiresIn, benefit) {
     let strategy;
 
     switch (name) {
-      case 'Herbal Tea':
+      case "Herbal Tea":
         strategy = new HerbalTeaStrategy();
         break;
-      case 'Magic Pill':
+      case "Magic Pill":
         strategy = new MagicPillStrategy();
         break;
-      case 'Fervex':
+      case "Fervex":
         strategy = new FervexStrategy();
         break;
-      case 'Dafalgan':
+      case "Dafalgan":
         strategy = new DafalganStrategy();
         break;
       default:

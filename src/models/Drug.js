@@ -1,11 +1,11 @@
-import { DefaultStrategy } from '../strategies/DefaultStrategy';
+import { DefaultStrategy } from "../strategies/DefaultStrategy";
 
 export class Drug {
   constructor(
     name,
     expiresIn,
     benefit,
-    updateStrategy = new DefaultStrategy()
+    updateStrategy = new DefaultStrategy(),
   ) {
     this.name = name;
     this.expiresIn = expiresIn;
